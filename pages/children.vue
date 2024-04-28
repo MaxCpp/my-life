@@ -9,82 +9,93 @@ export default defineComponent({
             numberMinutesFullDay: 60 * 24,
             spheres: [
                 {
-                    name: 'Health',
+                    name: 'Здоровье',
                     color: '#c8e6ff',
                     // color: '#d2e7f4',
                     content: [
                         {
-                            name: 'Sleep',
+                            name: 'Сон',
                             color: '#959bee',
-                            value: 480
+                            value: 600
                         },
                         {
-                            name: 'Hiking',
+                            name: 'Приём пищи',
                             value: 60
                         },
                         {
-                            name: 'Gymnastics',
-                            value: 30
+                            name: 'Гимнастика',
+                            value: 30,
+                            color: '#fbeb1f',
                         }
                     ]
                 },
                 {
-                    name: 'Work',
+                    name: 'Учёба',
                     color: '#ffc894',
                     content: [
+                        // {
+                        //     name: 'Школа',
+                        //     value: 300,
+                        // },
                         {
-                            name: '1ATH',
-                            value: 480
+                            name: 'Чтение',
+                            value: 30,
+                            color: '#ff7070',
                         },
                         {
-                            name: 'Totaling',
-                            value: 30
-                        }
+                            name: 'Музыка',
+                            value: 60,
+                            color: '#b2eba7',
+                        },
                     ]
                 },
                 {
-                    name: 'Family ',
+                    name: 'Домашник дела',
                     color: '#fbeb1f',
                     content: [
                         {
-                            name: 'Children',
-                            value: 100
+                            name: 'Кошка',
+                            value: 5
                         },
                         {
-                            name: 'Cooking',
-                            value: 20
-                        }
-                    ]
-                },
-                {
-                    name: 'Music',
-                    color: '#b2eba7',
-                    // color: '#c0e7c1',
-                    content: [
-                        {
-                            name: 'Theory',
-                            value: 10
-                        },
-                        {
-                            name: 'Practice',
-                            value: 15
-                        }
-                    ]
-                },
-                {
-                    name: 'Languages',
-                    color: '#ff7070',
-                    content: [
-                        {
-                            name: 'English',
+                            name: 'Посуду помыть',
                             value: 15
                         },
                         {
-                            name: 'Slovenian',
-                            value: 15
+                            name: 'Прополисосить',
+                            value: 30
                         }
                     ]
                 },
+                // {
+                //     name: 'Музыка',
+                //     color: '#b2eba7',
+                //     // color: '#c0e7c1',
+                //     content: [
+                //         {
+                //             name: 'Theory',
+                //             value: 60
+                //         },
+                //         {
+                //             name: 'Practice',
+                //             value: 15
+                //         }
+                //     ]
+                // },
+                // {
+                //     name: 'Languages',
+                //     color: '#ff7070',
+                //     content: [
+                //         {
+                //             name: 'English',
+                //             value: 15
+                //         },
+                //         {
+                //             name: 'Slovenian',
+                //             value: 15
+                //         }
+                //     ]
+                // },
             ]
         }
     },
@@ -125,6 +136,9 @@ export default defineComponent({
         //     console.log('val', val)
         //     this.timeframe = val;
         // }
+        minToHour(min) {
+            return (min / 60).toFixed(1) + 'h'
+        }
     }
 })
 </script>
@@ -161,7 +175,7 @@ export default defineComponent({
                      :key="'day' + index"
                      :style="{'background-color': item.color}"
                      :class="{'square_1min': timeframe === 1}"
-                     :title="`${item.name} - ${item.min} min (${(item.min / 60).toFixed(1)} h)`"
+                     :title="`${item.name} - ${item.min} min (${minToHour(item.min)})`"
                      class="square"></div>
             </div>
             
@@ -172,8 +186,8 @@ export default defineComponent({
                     <li v-if="sphere?.content"
                         v-for="theme in sphere.content"
                         class="sphere__theme">
-                        <div>{{theme.name}}</div>
-                        <div>{{theme.value}}</div>
+                        <div>{{ theme.name }}</div>
+                        <div>{{theme.value}} ({{ minToHour(theme.value) }})</div>
                         <div class="theme__content">
                             <div v-for="index in Math.ceil(theme.value / timeframe)"
                                  :key="theme.name+index"
@@ -188,7 +202,8 @@ export default defineComponent({
         <div>
             <h1>Main</h1>
             <NuxtLink to="/">Main</NuxtLink>
-            <NuxtLink to="/children/">Children</NuxtLink>
+            <NuxtLink to="/test/">Test</NuxtLink>
+            <NuxtLink to="/about/">About</NuxtLink>
         </div>
     </div>
 </template>
@@ -219,7 +234,7 @@ export default defineComponent({
 
     &__theme {
         display: grid;
-        grid-template-columns: 100px 50px 1fr;
+        grid-template-columns: 100px 80px 1fr;
         //justify-content: space-between;
         gap: 10px;
         padding: 0px 20px;
@@ -249,14 +264,14 @@ export default defineComponent({
     //&:nth-child(6n) {
     //    border: 1px solid rgba(0,0,0,.25);
     //}
-    &:nth-child(6n):after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        border-radius: 3px;
-        //background: rgba(255,255,255,.3);
-        background: rgba(0,0,0,.1);
-    }
+    //&:nth-child(6n):after {
+    //    content: '';
+    //    width: 100%;
+    //    height: 100%;
+    //    border-radius: 3px;
+    //    //background: rgba(255,255,255,.3);
+    //    background: rgba(0,0,0,.1);
+    //}
     //&:nth-child(6n):before {
     //    content: '';
     //    position: absolute;
