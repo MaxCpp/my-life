@@ -12,6 +12,9 @@ export default defineNuxtConfig({
 			extensions: ['.vue'],
 		},
 	],
+	modules: [
+		'nuxt3-leaflet'
+	],
 	app: {
 		head: {
 			title: 'My Life',
