@@ -10,11 +10,14 @@ export default defineComponent({
     <div class="app">
         <header class="header">
             <NuxtLink to="/">Main</NuxtLink>
+            <NuxtLink to="/work">Work</NuxtLink>
             <NuxtLink to="/children">Children</NuxtLink>
             <NuxtLink to="/map">Map</NuxtLink>
         </header>
     
-        <NuxtPage/>
+        <main>
+            <NuxtPage/>
+        </main>
     </div>
 </template>
 
@@ -27,6 +30,10 @@ export default defineComponent({
     display: flex;
     gap: 20px;
     height: 60px;
+    padding: 20px;
+}
+
+main {
     padding: 20px;
 }
 </style>

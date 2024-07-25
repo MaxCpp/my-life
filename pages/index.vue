@@ -42,49 +42,49 @@ export default defineComponent({
                         }
                     ]
                 },
-                {
-                    name: 'Family ',
-                    color: '#fbeb1f',
-                    content: [
-                        {
-                            name: 'Children',
-                            value: 100
-                        },
-                        {
-                            name: 'Cooking',
-                            value: 20
-                        }
-                    ]
-                },
-                {
-                    name: 'Music',
-                    color: '#b2eba7',
-                    // color: '#c0e7c1',
-                    content: [
-                        {
-                            name: 'Theory',
-                            value: 10
-                        },
-                        {
-                            name: 'Practice',
-                            value: 15
-                        }
-                    ]
-                },
-                {
-                    name: 'Languages',
-                    color: '#ff7070',
-                    content: [
-                        {
-                            name: 'English',
-                            value: 15
-                        },
-                        {
-                            name: 'Slovenian',
-                            value: 15
-                        }
-                    ]
-                },
+                // {
+                //     name: 'Family ',
+                //     color: '#fbeb1f',
+                //     content: [
+                //         {
+                //             name: 'Children',
+                //             value: 100
+                //         },
+                //         {
+                //             name: 'Cooking',
+                //             value: 20
+                //         }
+                //     ]
+                // },
+                // {
+                //     name: 'Music',
+                //     color: '#b2eba7',
+                //     // color: '#c0e7c1',
+                //     content: [
+                //         {
+                //             name: 'Theory',
+                //             value: 10
+                //         },
+                //         {
+                //             name: 'Practice',
+                //             value: 15
+                //         }
+                //     ]
+                // },
+                // {
+                //     name: 'Languages',
+                //     color: '#ff7070',
+                //     content: [
+                //         {
+                //             name: 'English',
+                //             value: 15
+                //         },
+                //         {
+                //             name: 'Slovenian',
+                //             value: 15
+                //         }
+                //     ]
+                // },
             ]
         }
     },
